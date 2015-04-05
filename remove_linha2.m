@@ -1,0 +1,13 @@
+function [entrada2, saida2]=remove_linha2(entrada,saida)
+M=[entrada saida];
+[m,n] = size(M);
+for i=1:1:m
+    for j=1:1:n
+        if abs(M(i,j))> 80
+        M(i,j)=M(i-1,j)
+        end
+    end
+end
+entrada2 = M(:,(1:end-1));
+saida2=M(:,end);
+end
