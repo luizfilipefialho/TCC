@@ -1,5 +1,6 @@
 function [entrada2,saida2] = prepara_data2(entrada,saida)
 periodos=4;
+[entrada, saida] = remove_linha2(entrada,saida);
 entrada2 = separa_periodos_passado(entrada,periodos);
 saida2 = separa_periodos_futuro(saida,periodos);
 
@@ -39,5 +40,5 @@ for i = periodos:1:m-(periodos-1)
     end
 end
 end 
-    
+    33.598949, -102.046882
     

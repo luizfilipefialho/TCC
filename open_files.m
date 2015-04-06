@@ -1,0 +1,19 @@
+function data = open_files()
+
+data_inicial=datenum(2014,6,2);
+
+data_final=datenum(2014,7,2);
+
+delta=datenum(0,0,1);
+i=0;
+for nw=data_inicial:delta:data_final
+    i=i+1;
+    completa = str2double(datestr(nw,'yyyymmdd'));
+    ano_mes= str2double(datestr(nw,'yyyymm'));
+    url=sprintf('http://nomads.ncdc.noaa.gov/dods/NCEP_NAM/%i/%i/nam_218_%i_0000_fff',ano_mes,completa,completa)
+    data(i,:) = ncread(url,'apcpsfc',[678,216,21],[1,1,8]);
+end
+data= sum(data,2);
+end
+
+%cat(2,'redes_treinadas\',(sprintf('network_%i_%i_%i_%i.mat',topologia,t,comb_input,fcn))
